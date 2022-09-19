@@ -33,6 +33,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  font-size: inherit;
 }
 
 /* Выставляем основные настройки по-умолчанию для body */
@@ -54,9 +55,9 @@ ol[class] {
 
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 
-a:not([class]) {
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Упрощаем работу с изображениями */
@@ -84,28 +85,209 @@ select {
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 
 body {
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  background: #E5E5E5;
+}
+
+.wrapper {
+  max-width: 1920px;
+  min-height: 100vh;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url("../img/Landing-Page.png") 0 0 no-repeat;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  color: #666666;
+  padding: 0 15px;
 }
 
-span {
-  font-size: 20px;
+.container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1361px;
+  min-height: 100vh;
 }
 
-div {
-  font-size: 30px;
+.header {
+  width: 100%;
+  min-height: 154px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  position: relative;
+}
+
+.header__logo {
+  width: 183.86px;
+  height: 67px;
+  margin-top: 23px;
+}
+
+.header__title {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+.navbar {
+  width: 100%;
+}
+
+.navbar__burger {
+  display: none;
+  width: 40px;
+  height: 22px;
+}
+
+.navbar__body {
+  height: 80px;
+  border: 1px solid #E2E2E2;
+  border-radius: 5px;
+  background: #FFFFFF;
+  padding: 15px 0;
+}
+
+.navbar__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  width: 100%;
+  color: #333333;
+}
+
+.navbar__list li {
+  width: 20%;
+  border-right: 1px solid #E2E2E2;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 1px;
+}
+
+.navbar_header-position {
+  position: absolute;
+  left: 0;
+  bottom: -50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.burger {
+  position: relative;
+}
+
+.burger__item {
+  width: 100%;
+  height: 4px;
+  background: #333333;
+  position: absolute;
+}
+
+.burger__first {
+  top: 0;
+}
+
+.burger__second {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.burger__three {
+  bottom: 0;
+}
+
+@media (max-width: 1390px) {
+  .header {
+    min-height: 124px;
+  }
+
+  .header__logo {
+    margin-left: 30px;
+  }
+
+  .header__title {
+    left: 58.2%;
+    bottom: 41.1%;
+  }
+
+  .navbar__burger {
+    display: block;
+  }
+
+  .navbar__body {
+    display: none;
+  }
+
+  .navbar_header-position {
+    left: 90.9%;
+    bottom: 51px;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 @media (max-width: 767px) {
-  span {
-    font-size: 15px;
+  .header__logo {
+    margin-left: 0;
   }
 
-  div {
-    font-size: 20px;
+  .header__title {
+    width: 100%;
+    left: 54.6%;
+    bottom: -2.6px;
+  }
+
+  .navbar__burger {
+    width: 30px;
+    height: 20px;
+  }
+
+  .navbar_header-position {
+    left: 89.8%;
+    bottom: 56px;
   }
 }
 
